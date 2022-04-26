@@ -22,6 +22,10 @@ void setup(){
   
 void loop (){
 
+  /////////////////////////////////////////////////////////////////////////////////////////////////
+  //Clapping mode: clap to see different LED patterns. Use potenciometer to change pattern speed//
+  ///////////////////////////////////////////////////////////////////////////////////////////////
+
   if(digitalRead(switchPin) == LOW){   //switch to Clapping mode.
 
     boolean clap = digitalRead(sensorPin);
@@ -112,9 +116,14 @@ void loop (){
         count = 0; // the fourth clap resets count value to 0. 
     }
     
+
+  ///////////////////////////////////////////////////////////////////////////////////
+  //Music mode: play music next to the sensor so LEDs react to the different beats//
+  /////////////////////////////////////////////////////////////////////////////////
+
   }else{  //Switch to Music mode.
-      boolean clap = digitalRead(sensorPin);
-      if(clap == true){
+      boolean beat = digitalRead(sensorPin);
+      if(beat == true){
         digitalWrite(redLed, HIGH);
         digitalWrite(blueLed, HIGH);
         digitalWrite(yellowLed, HIGH);
