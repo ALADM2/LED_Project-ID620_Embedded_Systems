@@ -4,12 +4,12 @@ int yellowLed=11;
 int greenLed=10;
 int sensorPin=7;
 int switchPin=6;
-int potPosition;
+//int potPosition;
 
-int lightMode = 0;
-int count = 0;
-unsigned int previousMillis = 0;    // will store last time LED was updated. Unsigned means no negative values
-int interval;
+int lightMode = 0; // will change LEDs blinking pattern. 
+int count = 0; // will increase with every clap.
+unsigned int previousMillis = 0;    // will store last time LED was updated. Unsigned means no negative values.
+int interval; //LEDs blinking speed.
 
 void setup(){
   pinMode(redLed, OUTPUT);
@@ -26,8 +26,7 @@ void loop (){
   if(digitalRead(switchPin) == LOW){   //If switch is on. Clapping mode.
 
     boolean clap = digitalRead(sensorPin);
-    potPosition = analogRead(A0);
-    interval = potPosition;
+    interval = analogRead(A0); //Interval depends on the potenciometer position.
   
     if(clap == true){
         count++;
