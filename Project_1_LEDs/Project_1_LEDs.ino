@@ -23,7 +23,7 @@ void setup(){
 void loop (){
 
   /////////////////////////////////////////////////////////////////////////////////////////////////
-  //Clapping mode: clap to see different LED patterns. Use potenciometer to change pattern speed//
+  //Clapping mode: clap to see different LED patterns. Use potentiometer to change pattern speed//
   ///////////////////////////////////////////////////////////////////////////////////////////////
 
   if(digitalRead(switchPin) == LOW){   //switch to Clapping mode.
