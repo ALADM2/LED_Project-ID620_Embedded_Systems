@@ -34,7 +34,7 @@ void loop (){
     if(clap == true){
         count++; //every clap will increase count changing the LEDs pattern
         lightMode = 0;
-        delay(200);   
+        delay(300);   
     }  
 
     if(count == 1){
