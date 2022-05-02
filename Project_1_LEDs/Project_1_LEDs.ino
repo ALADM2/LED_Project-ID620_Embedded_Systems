@@ -34,7 +34,7 @@ void loop (){
     if(clap == true){
         count++; //every clap will increase count changing the LEDs pattern
         lightMode = 0;
-        delay(300);   
+        delay(300);   //Stop the program so it reads only one sound.
     }  
 
     if(count == 1){
@@ -102,12 +102,68 @@ void loop (){
               digitalWrite(blueLed, LOW);
               digitalWrite(yellowLed, LOW);
               digitalWrite(greenLed, HIGH);
-              lightMode = -1;
+              lightMode = -1; //It will be 0 at the end of the loop to restart the pattern.
             break;           
          }    
          lightMode++; //Change light blinking mode for next loop.
-       }     
+       } 
    }else if(count == 4){
+
+        unsigned long currentMillis = millis();
+         
+        if(currentMillis - previousMillis >= interval){
+        
+          previousMillis = currentMillis;
+
+          switch(lightMode){
+            case 0:
+              digitalWrite(redLed, HIGH);
+              digitalWrite(blueLed, LOW);
+              digitalWrite(yellowLed, LOW);
+              digitalWrite(greenLed, HIGH);
+            break;
+            case 1:  
+              digitalWrite(redLed, LOW);
+              digitalWrite(blueLed, HIGH);
+              digitalWrite(yellowLed, HIGH);
+              digitalWrite(greenLed, LOW);
+            break;
+            case 2:
+              digitalWrite(redLed, LOW);
+              digitalWrite(blueLed, LOW);
+              digitalWrite(yellowLed, LOW);
+              digitalWrite(greenLed, LOW);
+            break;
+            case 3:
+              digitalWrite(redLed, HIGH);
+              digitalWrite(blueLed, HIGH);
+              digitalWrite(yellowLed, HIGH);
+              digitalWrite(greenLed, HIGH);
+            break; 
+            case 4:
+              digitalWrite(redLed, LOW);
+              digitalWrite(blueLed, LOW);
+              digitalWrite(yellowLed, LOW);
+              digitalWrite(greenLed, LOW);
+            break; 
+            case 5:
+              digitalWrite(redLed, HIGH);
+              digitalWrite(blueLed, HIGH);
+              digitalWrite(yellowLed, HIGH);
+              digitalWrite(greenLed, HIGH);             
+            break; 
+            case 6:
+              digitalWrite(redLed, LOW);
+              digitalWrite(blueLed, LOW);
+              digitalWrite(yellowLed, LOW);
+              digitalWrite(greenLed, LOW);
+              lightMode = -1;
+            break;                       
+         }    
+         lightMode++; //Change light blinking mode for next loop.
+       } 
+           
+   }else if(count == 5){
         digitalWrite(redLed, LOW);
         digitalWrite(blueLed, LOW);
         digitalWrite(yellowLed, LOW);
